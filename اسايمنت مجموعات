@@ -1,0 +1,69 @@
+//وسيم ابو ندى , محمد عاشور , عبدالله عويس
+//التاكد من الحل قبل رفعه ع الاي كلاس
+#include <iostream>
+#include <string>
+using namespace std;
+class Account{
+ public :
+ Account(int accountID,string accountTitle,double openingBal,string emailID){}
+ Account(int accountID,string accountTitle,double openingBal){}
+ void setAccountID(int accountID){this->accountID=accountID;}
+ void setAccountTitle(string accountTitle){this->accountTitle=accountTitle;}
+void setOpeningbal(double openingBal){this->openingBal=openingBal;}
+bool setAccountbal(double accountbal)
+{
+if(accountbal>=100){this->accountBal=accountbal;return true;}
+else{return false;}
+}
+ void setEmailID(string email){
+ this->emailID=email;
+}
+ bool setminBalLimit(double minBalLimit)
+ {
+ if(minBalLimit>=0){this->minBalLimit=minBalLimit;return true;}
+ else{return false;}
+ }
+int getAccountID(){return this->accountID;}
+string getAccountTitle(){return this->accountTitle;}
+ double getOpeningBal(){return this->openingBal;}
+string getEmailID(){return this->emailID;}
+ double getAccountBal(){return this->accountBal;}
+static int getNumAccount(){return numAccounts;}
+static double getMinBalLimit(){return minBalLimit;}
+void toString(){
+std::cout<< "Account created !";
+std::cout << "Account ID !" << this->getAccountID()<<"\n";
+std::cout << "Account Title" << this->getAccountTitle()<<"\n";
+std::cout << "opening balance"<< this->getOpeningBal()<<"\n";
+std::cout << "emailID"<<this->getEmailID()<<"\n";
+}
+bool equals(Account account){return true;}
+bool deposit(double amount){
+this->accountBal=this->accountBal+amount;return true;}
+bool withdraw(double amount){
+this->accountBal=this->accountBal-amount;return true;}
+static int minBalLimit;
+static int numAccounts;
+ private:
+int accountID;
+string accountTitle;
+double openingBal;
+string emailID ="";
+double accountBal;
+ };
+int Account::minBalLimit =100; int Account::numAccounts = 0;
+ int main()
+  {
+ Account test(3,"3 account",100,"was.com");
+ test.setAccountID(2);test.setAccountTitle("2_account");test.setOpeningbal(200);
+  test.setEmailID("was@eem.com");test.toString();
+std::cout<<"\n";
+ test.setAccountID(1);
+test.setAccountTitle("1_account");
+ test.setOpeningbal(200);
+ test.setEmailID("abu@eem.com");
+test.toString();
+std::cout<<"\n";
+return 0;
+ }
+ 
